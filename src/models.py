@@ -28,14 +28,13 @@ class User(db.Model):
             "username": self.username,
             "email": self.email,
         }
-    
+
     def serialize_fav(self):
         return {
             "id": self.id,
             "email": self.email,
             "favorites": list(map(lambda item: item.serialize(), self.favorite))
         }
-
 
 class Planet(db.Model):
     id = db.Column(db.Integer, primary_key=True)
